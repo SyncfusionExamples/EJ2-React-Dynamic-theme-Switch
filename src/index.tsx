@@ -18,8 +18,8 @@ export default class App extends React.Component<{}, {}> {
         if (e && e.itemData.value) {
             const ajax: Ajax = new Ajax('http://cdn.syncfusion.com/ej2/' + e.itemData.value + '.css', 'GET', true);
             ajax.send().then((result: any) => {
-              const style: HTMLCollectionOf<HTMLStyleElement> = document.getElementsByTagName('style') as HTMLCollectionOf<HTMLStyleElement>;
-              style[0].innerHTML = `/*${e.itemData.value}*/` + result;
+            const styleTag: any = document.getElementById('theme');
+            styleTag.innerHTML=`/*${e.itemData.value}*/` + result;
             });
           }       
   };
